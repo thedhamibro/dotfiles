@@ -1,0 +1,249 @@
+[accessibility]
+ui_scale = 1.20
+
+[bar.default]
+background_opacity = 0.0
+border_width = 0.0
+center = [ "group:g_center" ]
+concave_edge_corners = false
+end = [ "group:g_tray", "group:g_notifs", "group:g_controls", "group:g_power" ]
+margin_edge = 6
+margin_ends = 12
+padding = 0
+scale = 1.0
+shadow = false
+start = [ "group:g_left" ]
+thickness = 36
+widget_spacing = 10
+
+    [[bar.default.capsule_group]]
+    border = "primary"
+    fill = "surface_variant"
+    id = "g_left"
+    members = [ "launcher", "workspaces" ]
+    opacity = 0.50
+    padding = 6.0
+    radius = 12.0
+    widget_spacing = 8
+
+    [[bar.default.capsule_group]]
+    border = "primary"
+    fill = "surface_variant"
+    id = "g_center"
+    members = [ "clock", "spacer_center", "media" ]
+    opacity = 0.50
+    padding = 6.0
+    radius = 12.0
+    widget_spacing = 6
+
+    [[bar.default.capsule_group]]
+    border = "primary"
+    fill = "surface_variant"
+    id = "g_tray"
+    members = [ "tray" ]
+    opacity = 0.50
+    padding = 6.0
+    radius = 12.0
+    widget_spacing = 6
+
+    [[bar.default.capsule_group]]
+    border = "primary"
+    fill = "surface_variant"
+    id = "g_notifs"
+    members = [ "notifications", "clipboard" ]
+    opacity = 0.50
+    padding = 6.0
+    radius = 12.0
+    widget_spacing = 8
+
+    [[bar.default.capsule_group]]
+    border = "primary"
+    fill = "surface_variant"
+    id = "g_controls"
+    members = [ "network", "volume", "brightness", "bluetooth" ]
+    opacity = 0.50
+    padding = 6.0
+    radius = 12.0
+    widget_spacing = 8
+
+    [[bar.default.capsule_group]]
+    border = "primary"
+    fill = "surface_variant"
+    id = "g_power"
+    members = [ "session" ]
+    opacity = 0.50
+    padding = 6.0
+    radius = 12.0
+    widget_spacing = 6
+
+[shell]
+font_family = "Inter"
+clipboard_image_action_command = "satty -f -"
+launch_apps_as_systemd_services = true
+polkit_agent = true
+settings_show_advanced = true
+
+    [shell.greeter_sync]
+    auto_sync = true
+
+    [shell.panel]
+    transparency_mode = "soft"
+    control_center_placement = "floating"
+    open_near_click_control_center = true
+    session_placement = "floating"
+    session_position = "center"
+
+    [shell.screenshot]
+    copy_to_clipboard = false
+    pipe_command = "satty -f -"
+    pipe_to_command = true
+    save_to_file = false
+
+    [[shell.session.actions]]
+    action = "lock"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "1"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "logout"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "2"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "lock_and_suspend"
+    countdown_seconds = 3.0
+    enabled = true
+    shortcut = "3"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "reboot"
+    countdown_seconds = 3.0
+    enabled = true
+    shortcut = "4"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "shutdown"
+    countdown_seconds = 3.0
+    enabled = true
+    shortcut = "5"
+    variant = "destructive"
+
+[system.monitor]
+gpu_poll_seconds = 2
+
+[theme]
+mode = "dark"
+source = "wallpaper"
+wallpaper_scheme = "m3-tonal-spot"
+
+    [theme.templates]
+    builtin_ids = [ "btop", "gtk3", "gtk4", "kcolorscheme", "kitty", "qt", "alacritty" ]
+
+[widget.bluetooth]
+color = "secondary"
+show_label = false
+
+[widget.brightness]
+color = "secondary"
+show_label = false
+
+[widget.clipboard]
+color = "secondary"
+glyph = "clipboard"
+
+[widget.clock]
+color = "on_surface"
+format = "{:%I:%M}"
+tooltip_format = "{:%A, %B %d, %Y}"
+
+[widget.launcher]
+color = "primary"
+glyph = "search"
+
+[widget.media]
+artist_first = true
+color = "secondary"
+hide_when_no_media = true
+max_length = 180
+title_scroll = "on_hover"
+
+[widget.network]
+color = "secondary"
+
+[widget.notifications]
+color = "secondary"
+
+[widget.session]
+color = "error"
+
+[widget.spacer_center]
+length = 8
+type = "spacer"
+
+[widget.tray]
+capsule = false
+
+[widget.volume]
+color = "secondary"
+show_label = false
+
+[widget.workspaces]
+active_pill_size = 2.4
+capsule = false
+empty_color = "outline"
+focused_color = "primary"
+inactive_pill_size = 1.0
+occupied_color = "secondary"
+pill_scale = 0.80
+show_labels = false
+style = "regular"
+
+[hooks]
+colors_changed = "~/.config/hypr/scripts/sync-border.sh"
+
+[dock]
+enabled = true
+position = "bottom"
+layer = "top"
+reserve_space = false
+auto_hide = true
+smart_auto_hide = false
+margin_edge = 14
+background_opacity = 0.20
+border = "primary"
+border_width = 1.5
+radius = 12.0
+concave_edge_corners = false
+show_dots = true
+magnification = true
+magnification_scale = 1.12
+item_spacing = 8
+icon_size = 48
+active_scale = 1.0
+inactive_scale = 0.90
+inactive_opacity = 1.0
+active_opacity = 1.0
+launcher_position = "none"
+pinned = ["firefox", "kitty", "dolphin"]
+
+[notification]
+position = "bottom_left"
+background_opacity = 0.50
+border = true
+offset_x = 16
+offset_y = 16
+scale = 1.05
+
+[osd]
+position = "bottom_left"
+orientation = "horizontal"
+background_opacity = 0.50
+border = true
+offset_x = 24
+scale = 1.10
